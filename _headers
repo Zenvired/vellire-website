@@ -1,0 +1,13 @@
+/*
+  X-Content-Type-Options: nosniff
+  Referrer-Policy: strict-origin-when-cross-origin
+  X-Frame-Options: DENY
+  Content-Security-Policy: default-src 'self'; object-src 'none'; base-uri 'self'; frame-ancestors 'none'
+
+/downloads/*.deb
+  Content-Type: application/vnd.debian.binary-package
+  Content-Disposition: attachment
+
+/downloads/*.exe
+  Content-Type: application/octet-stream
+  Content-Disposition: attachment
