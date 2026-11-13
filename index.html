@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#faf7f2">
   <meta name="description" content="Vellire styles keystrokes in real time in compatible Linux apps. Explore the Style Library and download for Windows or Linux.">
-  <title>Vellire — Unicode typing studio</title>
+  <title>Vellire</title>
   <link rel="icon" type="image/svg+xml" href="assets/logo-light.svg">
   <link rel="preload" href="assets/fonts/geist.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="styles.css">
@@ -75,7 +75,8 @@
       <a class="button" href="#preview">Try the styles <svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg></a>
     </div>
     <figure>
-      <a href="assets/screenshots/library-dark.webp"><img src="assets/screenshots/library-dark.webp" width="1350" height="900" loading="lazy" alt="Vellire’s Style Library, showing searchable presets and category filters."></a>
+      <a class="light-screenshot" href="assets/screenshots/library-light.webp"><img src="assets/screenshots/library-light.webp" width="1350" height="900" loading="lazy" alt="Vellire’s Style Library in light mode, showing searchable presets and category filters."></a>
+      <a class="dark-screenshot" href="assets/screenshots/library-dark.webp"><img src="assets/screenshots/library-dark.webp" width="1350" height="900" loading="lazy" alt="Vellire’s Style Library, showing searchable presets and category filters."></a>
       <figcaption>Style Library in Vellire</figcaption>
     </figure>
   </section>
@@ -119,12 +120,12 @@
           <div class="command-row"><code id="linux-command">sudo apt install ./vellire_0.1.5_amd64.deb</code><button type="button" class="copy-action" data-copy="linux-command">Copy</button></div>
         </article>
       </div>
-      <div class="release-links"><a class="text-link" href="downloads/SHA256SUMS.txt">SHA-256 checksums</a><a class="text-link" href="https://github.com/Zenvired/vellire-releases/releases/tag/v0.1.5">GitHub release notes ↗</a></div>
+      <div class="release-links"><a class="text-link" href="downloads/SHA256SUMS.txt">SHA-256 checksums</a><a class="text-link" href="https://github.com/Zenvired/vellire/releases/tag/v0.1.5">GitHub release notes ↗</a></div>
     </div>
   </section>
 
   <section id="faq" class="faq-section section wrap" aria-labelledby="faq-title">
-    <div><h2 id="faq-title">Good to know</h2></div>
+    <div><h2 id="faq-title">Frequently asked questions</h2></div>
     <div class="faq-list">
       <details><summary>Why do some styles look different after pasting?</summary><p>The styles use Unicode characters. Their appearance depends on the font and app that display them. Some characters may appear plain or as missing glyphs.</p></details>
       <details><summary>Why does typing stay plain in some fields?</summary><p>Live typing requires IBus on Linux and a compatible text field. Vellire keeps password, private and terminal fields plain. In the app, choose <strong>Use Normal</strong> to return to standard text.</p></details>
@@ -136,8 +137,8 @@
 
 <footer class="site-footer wrap">
   <a class="brand" href="./">Vellire</a>
-  <nav aria-label="Footer"><a href="#download">Downloads</a><a href="https://github.com/Zenvired/vellire-website">GitHub</a><a href="https://ko-fi.com/zenvire">Support on Ko-fi</a></nav>
-  <p>Made by Zenvire</p>
+  <nav aria-label="Footer"><a href="#download">Downloads</a><a href="https://github.com/Zenvired/vellire">Vellire on GitHub</a><a href="https://ko-fi.com/zenvire">Support on Ko-fi</a></nav>
+  <p><a href="https://zenvire.netlify.app/">More from Abdullah Ishaq ↗</a></p>
 </footer>
 <p id="copy-status" class="visually-hidden" role="status"></p>
 </body>
