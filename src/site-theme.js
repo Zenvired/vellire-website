@@ -6,7 +6,7 @@ const darkIcon = new URL('../assets/logo-dark.svg', import.meta.url).href;
 
 function readTheme() {
   try {
-    return localStorage.getItem('wellnile-theme') === 'dark' ? 'dark' : 'light';
+    return localStorage.getItem('vellire-theme') === 'dark' ? 'dark' : 'light';
   } catch {
     return 'light';
   }

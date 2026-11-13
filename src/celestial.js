@@ -74,7 +74,7 @@ class Material {
     } catch (error) {
       // The original artwork remains visible if WebGL is unavailable.
       this.ready = false;
-      console.warn('Wellnile: using the static artwork fallback.', error.message);
+      console.warn('Vellire: using the static artwork fallback.', error.message);
     }
   }
 
@@ -129,7 +129,7 @@ export class CelestialScene {
     this.previous = 0;
     this.switchDeadline = 0;
     this.paused = false;
-    try { this.paused = localStorage.getItem('wellnile-motion') === 'paused'; } catch { /* Storage can be blocked. */ }
+    try { this.paused = localStorage.getItem('vellire-motion') === 'paused'; } catch { /* Storage can be blocked. */ }
     this.materials = [
       new Material(host.querySelector('.scene-light'), 'light', SOLAR_FRAGMENT, 'assets/sun.png', this),
       new Material(host.querySelector('.scene-dark'), 'dark', ORBIT_FRAGMENT, 'assets/black-hole.png', this),
@@ -151,7 +151,7 @@ export class CelestialScene {
   }
   toggle() {
     this.paused = !this.paused;
-    try { localStorage.setItem('wellnile-motion', this.paused ? 'paused' : 'playing'); } catch { /* Optional preference. */ }
+    try { localStorage.setItem('vellire-motion', this.paused ? 'paused' : 'playing'); } catch { /* Optional preference. */ }
     this.sync();
   }
   sync() {

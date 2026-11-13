@@ -24,7 +24,7 @@ function syncTheme() {
 themeButton.addEventListener('click', () => {
   theme = theme === 'dark' ? 'light' : 'dark';
   syncTheme();
-  try { localStorage.setItem('wellnile-theme', theme); } catch { /* Optional preference. */ }
+  try { localStorage.setItem('vellire-theme', theme); } catch { /* Optional preference. */ }
 });
 syncTheme();
 

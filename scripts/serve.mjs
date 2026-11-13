@@ -55,7 +55,7 @@ server.on('error', error => {
     process.exitCode = 1;
   }
 });
-server.on('listening', () => console.log(`Wellnile website: http://localhost:${server.address().port}`));
+server.on('listening', () => console.log(`Vellire website: http://localhost:${server.address().port}`));
 for (const signal of ['SIGINT', 'SIGTERM']) {
   process.once(signal, () => {
     server.close(() => process.exit(0));
