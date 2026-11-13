@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#faf7f2">
-  <meta name="description" content="Preview Unicode text styles and download Vellire for Windows or Debian-based Linux.">
+  <meta name="description" content="Vellire styles keystrokes in real time in compatible Linux apps. Explore the Style Library and download for Windows or Linux.">
   <title>Vellire — Unicode typing studio</title>
   <link rel="icon" type="image/svg+xml" href="assets/logo-light.svg">
   <link rel="preload" href="assets/fonts/geist.woff2" as="font" type="font/woff2" crossorigin>
@@ -40,49 +40,65 @@
 
 <header class="site-header wrap">
   <a class="brand" href="./"><span class="brand-mark"><img class="logo-light" src="assets/logo-light.svg" alt="" width="38" height="38"><img class="logo-dark" src="assets/logo-dark.svg" alt="" width="38" height="38"></span>Vellire</a>
-  <nav class="desktop-nav" aria-label="Main navigation"><a href="#preview">Try styles</a><a href="#download">Installation</a><a href="#faq">FAQ</a></nav>
+  <nav class="desktop-nav" aria-label="Main navigation"><a href="#app">The app</a><a href="#preview">Try styles</a><a href="#download">Installation</a><a href="#faq">FAQ</a></nav>
   <div class="header-actions">
     <button class="theme-toggle" type="button" aria-label="Switch to dark mode" aria-pressed="false"><span class="theme-thumb"></span><svg class="icon" aria-hidden="true"><use href="#i-sun"/></svg><svg class="icon" aria-hidden="true"><use href="#i-moon"/></svg></button>
     <a class="header-download" href="#download">Download <svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg></a>
     <button class="menu-toggle icon-button" type="button" aria-label="Open navigation" aria-expanded="false" aria-controls="mobile-nav"><svg class="icon" aria-hidden="true"><use href="#i-menu"/></svg></button>
   </div>
 </header>
-<nav id="mobile-nav" class="mobile-nav" aria-label="Mobile navigation" hidden><a href="#preview">Try styles</a><a href="#download">Installation</a><a href="#faq">FAQ</a></nav>
+<nav id="mobile-nav" class="mobile-nav" aria-label="Mobile navigation" hidden><a href="#app">The app</a><a href="#preview">Try styles</a><a href="#download">Installation</a><a href="#faq">FAQ</a></nav>
 
 <main id="main">
   <section class="hero" aria-labelledby="hero-title">
     <div class="celestial-scene" aria-hidden="true"><div class="scene-material scene-light"></div><div class="scene-material scene-dark"></div></div>
     <div class="hero-copy wrap">
-      <h1 id="hero-title">Give your words<br>a <span class="serif-word">different style.</span></h1>
-      <p class="hero-description">Preview bold, italic and monospace Unicode text.<br>Style as you type on compatible Linux desktops.</p>
+      <h1 id="hero-title">Styled as you <span class="serif-word">type.</span></h1>
+      <p class="hero-description">Pick a style and keep typing. Vellire transforms your keystrokes into Unicode text as you type in compatible Linux apps.</p>
       <a class="button button-primary" href="#download">Download the app <svg class="icon" aria-hidden="true"><use href="#i-down"/></svg></a>
       <p class="download-caption">Windows and Debian-based Linux · x64 · v0.1.5</p>
     </div>
-    <div id="preview" class="hero-app wrap">
-      <div class="app-window type-studio">
-        <div class="studio-title"><img class="logo-light" src="assets/logo-light.svg" width="27" height="27" alt=""><img class="logo-dark" src="assets/logo-dark.svg" width="27" height="27" alt=""><span>Style preview</span></div>
-        <div class="studio-body">
-          <label for="sample">Your text</label>
-          <textarea id="sample" rows="2" maxlength="280" spellcheck="false">Make it yours.</textarea>
-          <div class="style-controls" role="group" aria-label="Text styles">
-            <button type="button" data-style="normal" aria-pressed="false">Normal</button>
-            <button type="button" data-style="bold" aria-pressed="true">Bold</button>
-            <button type="button" data-style="italic" aria-pressed="false">Italic</button>
-            <button type="button" data-style="mono" aria-pressed="false">Monospace</button>
-          </div>
-          <div class="studio-result"><output id="styled" for="sample">𝐌𝐚𝐤𝐞 𝐢𝐭 𝐲𝐨𝐮𝐫𝐬．</output><button type="button" class="copy-action" data-copy="styled">Copy</button></div>
-        </div>
+    <figure id="app" class="hero-app wrap">
+      <div class="app-window app-gallery">
+        <img class="desktop-shot home-light" src="assets/screenshots/home-light.webp" width="1350" height="900" alt="Vellire desktop app in light mode, showing its home screen, typing preview, and popular styles." fetchpriority="high">
+        <img class="desktop-shot home-dark" src="assets/screenshots/home-dark.webp" width="1350" height="900" alt="Vellire desktop app in dark mode, with the black hole behind its popular styles.">
       </div>
-      <div class="app-caption"><span><span class="status-dot"></span> Browser preview</span><button class="motion-toggle" type="button" aria-pressed="false"><svg class="icon" aria-hidden="true"><use href="#i-pause"/></svg><span>Pause animation</span></button></div>
-    </div>
+      <figcaption class="app-caption"><span><span class="status-dot"></span> Vellire desktop app</span><button class="motion-toggle" type="button" aria-pressed="false"><svg class="icon" aria-hidden="true"><use href="#i-pause"/></svg><span>Pause animation</span></button></figcaption>
+    </figure>
   </section>
 
-  <section class="section wrap support-section" aria-labelledby="support-title">
-    <div class="section-heading"><h2 id="support-title">What works where</h2></div>
-    <div class="profile-grid">
-      <article><h3>Style Library</h3><p>Explore everyday styles and decorative presets in the desktop app. Save favorites for quick access.</p></article>
-      <article><h3>Live typing on Linux</h3><p>Use Vellire’s IBus input source in compatible apps. On GNOME, <kbd>Alt</kbd> + <kbd>S</kbd> starts styling and <kbd>Alt</kbd> + <kbd>T</kbd> pauses it.</p></article>
-      <article><h3>Preview on Windows</h3><p>The Windows build lets you preview styles in the app. Use the browser preview above to copy styled text.</p></article>
+  <section class="section wrap library-section" aria-labelledby="library-title">
+    <div>
+      <h2 id="library-title">Find a style.<br>Keep typing.</h2>
+      <p>Start with Bold, Italic or Monospace. Use the Style Library to search for something different and save the styles you reach for most.</p>
+      <p>On compatible GNOME desktops, <kbd>Alt</kbd> + <kbd>S</kbd> starts live styling and <kbd>Alt</kbd> + <kbd>T</kbd> pauses it.</p>
+      <a class="button" href="#preview">Try the styles <svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+    </div>
+    <figure>
+      <a href="assets/screenshots/library-dark.webp"><img src="assets/screenshots/library-dark.webp" width="1350" height="900" loading="lazy" alt="Vellire’s Style Library, showing searchable presets and category filters."></a>
+      <figcaption>Style Library in Vellire</figcaption>
+    </figure>
+  </section>
+
+  <section id="preview" class="section wrap" aria-labelledby="preview-title">
+    <div class="section-heading"><h2 id="preview-title">Try Vellire’s styles</h2><p>Type here and see the result as you go.<br>Copy it into a message or document.</p></div>
+    <div class="app-window type-studio">
+      <div class="studio-body">
+        <div class="studio-inputs">
+          <div><label for="sample">Your text</label><textarea id="sample" rows="2" maxlength="280" spellcheck="false">Make it yours.</textarea></div>
+          <div><label for="style-select">All styles</label><select id="style-select"><option value="bold">Bold</option></select></div>
+        </div>
+        <div class="style-controls" role="group" aria-label="Popular styles">
+          <button type="button" data-style="bold" aria-pressed="true">Bold</button>
+          <button type="button" data-style="sans-bold" aria-pressed="false">Sans Bold</button>
+          <button type="button" data-style="bold-italic" aria-pressed="false">Bold Italic</button>
+          <button type="button" data-style="italic" aria-pressed="false">Italic</button>
+          <button type="button" data-style="monospace" aria-pressed="false">Monospace</button>
+          <button type="button" data-style="script" aria-pressed="false">Elegant Script</button>
+          <button type="button" data-style="normal" aria-pressed="false">Normal</button>
+        </div>
+        <div class="studio-result"><output id="styled" for="sample style-select" aria-live="off">𝐌𝐚𝐤𝐞 𝐢𝐭 𝐲𝐨𝐮𝐫𝐬．</output><button type="button" class="copy-action" data-copy="styled">Copy</button></div>
+      </div>
     </div>
   </section>
 
@@ -94,7 +110,7 @@
           <h3>Windows 10 &amp; 11</h3><p>x64 · <code>.exe</code></p>
           <a class="button button-primary" download href="downloads/Vellire_0.1.5_x64-setup.exe">Download for Windows <svg class="icon" aria-hidden="true"><use href="#i-down"/></svg></a>
           <ol><li>Open <strong>Vellire_0.1.5_x64-setup.exe</strong>.</li><li>Follow the setup prompts. Setup may download Microsoft Edge WebView2 if needed.</li><li>Open Vellire from the Start menu.</li></ol>
-          <p class="platform-note">Unsigned preview build. The installer contents were checked. Testing on Windows 10 and 11 is still pending.</p>
+          <p class="platform-note">System-wide typing is available on Linux through IBus. On Windows, styling works inside Vellire.</p>
         </article>
         <article class="platform-card">
           <h3>Debian-based Linux</h3><p>Ubuntu, Zorin OS and compatible systems · x64</p>

@@ -174,3 +174,28 @@ figure img[data-dark-src] {
   .type-studio { aspect-ratio: auto; }
   .support-section .profile-grid { margin-top: 0; }
 }
+
+/* App screenshots and the live browser demo. */
+.hero-description { max-width: 36rem; margin-inline: auto; }
+.app-gallery { aspect-ratio: 3 / 2; border-radius: 12px; }
+.app-gallery img { display: block; width: 100%; height: auto; }
+.app-gallery .home-dark { display: none; }
+:root[data-theme="dark"] .app-gallery .home-light { display: none; }
+:root[data-theme="dark"] .app-gallery .home-dark { display: block; }
+.library-section { display: grid; grid-template-columns: minmax(0, .85fr) minmax(0, 1.35fr); align-items: center; gap: clamp(28px, 7vw, 100px); }
+.library-section p { margin-top: 20px; color: var(--muted); }
+.library-section .button { margin-top: 20px; padding-inline: 0; }
+.library-section figure { margin: 0; }
+.library-section img { display: block; width: 100%; height: auto; border: 1px solid var(--line); border-radius: 10px; }
+.library-section figcaption { margin-top: 10px; font-size: .8rem; color: var(--muted); }
+#preview .type-studio { border-radius: 12px; }
+.studio-inputs { display: grid; grid-template-columns: minmax(0, 2fr) minmax(0, 1fr); gap: 16px; }
+.studio-inputs label { display: block; margin-bottom: 6px; }
+.studio-inputs select { width: 100%; padding: 12px; border: 1px solid var(--line); border-radius: 8px; background: var(--surface); color: var(--ink); font: inherit; }
+.site-header, .mobile-nav { position: relative; inset: auto; }
+.mobile-nav { margin: 8px auto 0; width: calc(100% - 40px); }
+@media (min-width: 761px) { .mobile-nav { display: none; } }
+@media (max-width: 760px) {
+  .library-section, .studio-inputs { grid-template-columns: minmax(0, 1fr); }
+  .hero-app { margin-top: 62px; }
+}

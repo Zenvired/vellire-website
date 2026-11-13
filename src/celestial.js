@@ -103,7 +103,7 @@ class Material {
     gl.viewport(0, 0, this.canvas.width, this.canvas.height);
     gl.uniform1i(u.image, 0);
     gl.uniform2f(u.cover, ...this.cover);
-    gl.uniform2f(u.pointer, 0, 0);
+    gl.uniform2f(u.pointer, ...this.controller.pointer);
     gl.uniform1f(u.time, this.elapsed);
     gl.uniform1f(u.speed, 3.8);
     gl.uniform1f(u.distortion, 1);
@@ -129,6 +129,17 @@ export class CelestialScene {
     this.previous = 0;
     this.switchDeadline = 0;
     this.paused = false;
+    this.pointer = [0, 0];
+    const hero = host.closest('.hero');
+    hero.addEventListener('pointermove', event => {
+      if (event.pointerType !== 'mouse' || this.stopped) return;
+      const bounds = host.getBoundingClientRect();
+      this.pointer = [
+        (event.clientX - bounds.left - bounds.width / 2) / bounds.width * .035,
+        (bounds.height / 2 - event.clientY + bounds.top) / bounds.height * .025,
+      ];
+    }, { passive: true });
+    hero.addEventListener('pointerleave', () => { this.pointer = [0, 0]; });
     try { this.paused = localStorage.getItem('vellire-motion') === 'paused'; } catch { /* Storage can be blocked. */ }
     this.materials = [
       new Material(host.querySelector('.scene-light'), 'light', SOLAR_FRAGMENT, 'assets/sun.png', this),

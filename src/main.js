@@ -1,4 +1,5 @@
 import { CelestialScene } from './celestial.js';
+import { styles } from './style-data.js';
 import { applySiteTheme, initialTheme } from './site-theme.js';
 
 const themeButton = document.querySelector('.theme-toggle');
@@ -21,9 +22,33 @@ function syncTheme() {
   scene?.setTheme(theme);
 }
 
+let themeTransition;
+const root = document.documentElement;
+const reduceMotion = matchMedia('(prefers-reduced-motion: reduce)');
 themeButton.addEventListener('click', () => {
   theme = theme === 'dark' ? 'light' : 'dark';
-  syncTheme();
+  themeTransition?.skipTransition();
+  if (document.startViewTransition && !reduceMotion.matches && document.visibilityState === 'visible') {
+    const bounds = themeButton.getBoundingClientRect();
+    const x = bounds.left + bounds.width / 2;
+    const y = bounds.top + bounds.height / 2;
+    const radius = Math.hypot(Math.max(x, innerWidth - x), Math.max(y, innerHeight - y));
+    root.classList.add('native-theme-transition');
+    const transition = document.startViewTransition(syncTheme);
+    themeTransition = transition;
+    transition.ready.then(() => root.animate([
+      { clipPath: `circle(0px at ${x}px ${y}px)` },
+      { clipPath: `circle(${radius}px at ${x}px ${y}px)` },
+    ], { duration: 850, easing: 'cubic-bezier(.22,1,.36,1)', pseudoElement: '::view-transition-new(root)', fill: 'both' }).finished).catch(() => {});
+    transition.finished.catch(() => {}).finally(() => {
+      if (themeTransition === transition) {
+        root.classList.remove('native-theme-transition');
+        themeTransition = undefined;
+      }
+    });
+  } else {
+    syncTheme();
+  }
   try { localStorage.setItem('vellire-theme', theme); } catch { /* Optional preference. */ }
 });
 syncTheme();
@@ -47,6 +72,11 @@ function showMenu(open) {
 }
 menuButton.addEventListener('click', () => showMenu(menu.hidden));
 menu.querySelectorAll('a').forEach(link => link.addEventListener('click', () => showMenu(false)));
+const mobileLayout = matchMedia('(max-width: 760px)');
+mobileLayout.addEventListener('change', event => { if (!event.matches) showMenu(false); });
+document.addEventListener('pointerdown', event => {
+  if (!menu.hidden && !menu.contains(event.target) && !menuButton.contains(event.target)) showMenu(false);
+});
 document.addEventListener('keydown', event => {
   if (event.key === 'Escape' && !menu.hidden) {
     showMenu(false);
@@ -58,34 +88,35 @@ const sample = document.querySelector('#sample');
 const output = document.querySelector('#styled');
 const styleButtons = [...document.querySelectorAll('[data-style]')];
 const outputCopy = document.querySelector('[data-copy="styled"]');
-const ranges = { bold: [0x1d400, 0x1d41a, 0x1d7ce], italic: [0x1d434, 0x1d44e], mono: [0x1d670, 0x1d68a, 0x1d7f6] };
-const boldPunctuation = {
-  '.': '．', '!': '！', '?': '？', ':': '：', ';': '；', ',': '❟',
-  "'": '❜', '’': '❜', '‘': '❛', '"': '❞', '”': '❞', '“': '❝',
-};
-let style = 'bold';
-
-function transform(char) {
-  const range = ranges[style];
-  if (!range) return char;
-  if (style === 'italic' && char === 'h') return 'ℎ';
-  if (char >= 'A' && char <= 'Z') return String.fromCodePoint(range[0] + char.charCodeAt(0) - 65);
-  if (char >= 'a' && char <= 'z') return String.fromCodePoint(range[1] + char.charCodeAt(0) - 97);
-  if (range[2] && char >= '0' && char <= '9') return String.fromCodePoint(range[2] + char.charCodeAt(0) - 48);
-  return style === 'bold' ? boldPunctuation[char] ?? char : char;
+const styleSelect = document.querySelector('#style-select');
+const styleById = new Map(styles.map(([id, , , mapping]) => [id, mapping]));
+const categories = new Map();
+styleSelect.replaceChildren();
+for (const [id, label, category] of styles) {
+  if (!categories.has(category)) {
+    const group = document.createElement('optgroup');
+    group.label = category;
+    categories.set(category, group);
+    styleSelect.append(group);
+  }
+  categories.get(category).append(new Option(label, id));
 }
 
 function updatePreview() {
-  output.textContent = Array.from(sample.value, transform).join('');
+  const style = styleSelect.value;
+  const mapping = styleById.get(style);
+  output.textContent = Array.from(sample.value, character => mapping[character] ?? character).join('');
   outputCopy.disabled = !output.textContent;
+  styleButtons.forEach(button => button.setAttribute('aria-pressed', String(button.dataset.style === style)));
 }
 
 sample.addEventListener('input', updatePreview);
+styleSelect.addEventListener('change', updatePreview);
 styleButtons.forEach(button => button.addEventListener('click', () => {
-  style = button.dataset.style;
-  styleButtons.forEach(item => item.setAttribute('aria-pressed', String(item === button)));
+  styleSelect.value = button.dataset.style;
   updatePreview();
 }));
+styleSelect.value = 'bold';
 updatePreview();
 
 const copyStatus = document.querySelector('#copy-status');
