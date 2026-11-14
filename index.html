@@ -53,8 +53,8 @@
   <section class="hero" aria-labelledby="hero-title">
     <div class="celestial-scene" aria-hidden="true"><div class="scene-material scene-light"></div><div class="scene-material scene-dark"></div></div>
     <div class="hero-copy wrap">
-      <h1 id="hero-title">Styled as you <span class="serif-word">type.</span></h1>
-      <p class="hero-description">Pick a style and keep typing. Vellire transforms your keystrokes into Unicode text as you type in compatible Linux apps.</p>
+      <h1 id="hero-title">Unicode styles <span class="serif-word">as you type.</span></h1>
+      <p class="hero-description">Choose a style in Vellire and use it as you type in compatible Linux apps. On Windows, style and copy text from the desktop app.</p>
       <a class="button button-primary" href="#download">Download the app <svg class="icon" aria-hidden="true"><use href="#i-down"/></svg></a>
       <p class="download-caption">Windows and Debian-based Linux · x64 · v0.1.5</p>
     </div>
@@ -63,7 +63,7 @@
         <img class="desktop-shot home-light" src="assets/screenshots/home-light.webp" width="1350" height="900" alt="Vellire desktop app in light mode, showing its home screen, typing preview, and popular styles." fetchpriority="high">
         <img class="desktop-shot home-dark" src="assets/screenshots/home-dark.webp" width="1350" height="900" alt="Vellire desktop app in dark mode, with the black hole behind its popular styles.">
       </div>
-      <figcaption class="app-caption"><span><span class="status-dot"></span> Vellire desktop app</span><button class="motion-toggle" type="button" aria-pressed="false"><svg class="icon" aria-hidden="true"><use href="#i-pause"/></svg><span>Pause animation</span></button></figcaption>
+      <figcaption class="app-caption"><span>Typing studio in Vellire</span><button class="motion-toggle" type="button" aria-pressed="false"><svg class="icon" aria-hidden="true"><use href="#i-pause"/></svg><span>Pause animation</span></button></figcaption>
     </figure>
   </section>
 
@@ -82,11 +82,11 @@
   </section>
 
   <section id="preview" class="section wrap" aria-labelledby="preview-title">
-    <div class="section-heading"><h2 id="preview-title">Try Vellire’s styles</h2><p>Try a style and copy the result.<br>The demo runs in your browser.</p></div>
+    <div class="section-heading"><h2 id="preview-title">Try Vellire’s styles</h2><p>Type a sample, choose a style, and copy the result.</p></div>
     <div class="app-window type-studio">
       <div class="studio-body">
         <div class="studio-inputs">
-          <div><label for="sample">Your text</label><textarea id="sample" rows="2" maxlength="280" spellcheck="false">Make it yours.</textarea></div>
+          <div><label for="sample">Your text</label><textarea id="sample" rows="2" maxlength="280" spellcheck="false">Try a line of text.</textarea></div>
           <div><label for="style-select">All styles</label><select id="style-select"><option value="bold">Bold</option></select></div>
         </div>
         <div class="style-controls" role="group" aria-label="Popular styles">
@@ -125,7 +125,7 @@
   </section>
 
   <section id="faq" class="faq-section section wrap" aria-labelledby="faq-title">
-    <div><h2 id="faq-title">Frequently asked questions</h2></div>
+    <div><h2 id="faq-title">Common questions</h2></div>
     <div class="faq-list">
       <details><summary>Why do some styles look different after pasting?</summary><p>Vellire changes the Unicode characters themselves. The destination app’s font decides how to draw them. If that font lacks a glyph, the app may show a blank box.</p></details>
       <details><summary>Why does typing stay plain in some fields?</summary><p>Live typing requires IBus on Linux and a compatible text field. Vellire keeps password, private and terminal fields plain. In the app, choose <strong>Use Normal</strong> to return to standard text.</p></details>

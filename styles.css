@@ -243,3 +243,19 @@ figure img[data-dark-src] {
 .faq-list summary:hover {
   color: var(--accent);
 }
+
+/* Keep the browser demo and installation steps easy to scan. */
+.hero-app { margin-top: clamp(44px, 6.5vw, 84px); }
+.app-window, :root[data-theme="dark"] .app-window { box-shadow: none; }
+.app-caption, .motion-toggle { font-size: .8rem; }
+.button:hover { transform: none; box-shadow: none; }
+.platform-grid { gap: 24px clamp(24px, 5vw, 60px); }
+.platform-card { padding: 18px 0 0; border: 0; border-top: 1px solid var(--line); border-radius: 0; background: transparent; }
+.platform-card .platform-note { margin-top: 12px; }
+.library-section .button { color: var(--accent); text-decoration: underline; text-underline-offset: .2em; }
+#preview .type-studio { border-radius: 8px; }
+.studio-result { border-top: 1px solid var(--line); padding-top: 14px; }
+@media (max-width: 480px) {
+  .studio-result { align-items: flex-start; flex-direction: column; }
+  .app-caption { gap: 8px; flex-wrap: wrap; }
+}
