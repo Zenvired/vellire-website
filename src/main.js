@@ -71,7 +71,9 @@ function showMenu(open) {
   menuButton.setAttribute('aria-label', open ? 'Close navigation' : 'Open navigation');
 }
 menuButton.addEventListener('click', () => showMenu(menu.hidden));
-menu.querySelectorAll('a').forEach(link => link.addEventListener('click', () => showMenu(false)));
+menu.addEventListener('click', event => {
+  if (event.target.closest('a')) showMenu(false);
+});
 const mobileLayout = matchMedia('(max-width: 760px)');
 mobileLayout.addEventListener('change', event => { if (!event.matches) showMenu(false); });
 document.addEventListener('pointerdown', event => {
@@ -105,8 +107,12 @@ for (const [id, label, category] of styles) {
 function updatePreview() {
   const style = styleSelect.value;
   const mapping = styleById.get(style);
-  output.textContent = Array.from(sample.value, character => mapping[character] ?? character).join('');
-  outputCopy.disabled = !output.textContent;
+  let styledText = '';
+  for (const character of sample.value) {
+    styledText += mapping[character] ?? character;
+  }
+  output.textContent = styledText;
+  outputCopy.disabled = styledText.length === 0;
   styleButtons.forEach(button => button.setAttribute('aria-pressed', String(button.dataset.style === style)));
 }
 
