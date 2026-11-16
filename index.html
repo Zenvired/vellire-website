@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#faf7f2">
-  <meta name="description" content="Vellire styles keystrokes in real time in compatible Linux apps. Explore the Style Library and download for Windows or Linux.">
+  <meta name="description" content="Vellire styles keystrokes in real time in compatible Windows and Linux apps. Explore the Style Library and download for Windows or Linux.">
   <title>Vellire</title>
   <link rel="icon" type="image/svg+xml" href="assets/logo-light.svg">
   <link rel="preload" href="assets/fonts/geist.woff2" as="font" type="font/woff2" crossorigin>
@@ -54,7 +54,7 @@
     <div class="celestial-scene" aria-hidden="true"><div class="scene-material scene-light"></div><div class="scene-material scene-dark"></div></div>
     <div class="hero-copy wrap">
       <h1 id="hero-title">Unicode styles <span class="serif-word">as you type.</span></h1>
-      <p class="hero-description">Choose a style in Vellire and use it as you type in compatible Linux apps. On Windows, style and copy text from the desktop app.</p>
+      <p class="hero-description">Choose a style in Vellire and use it as you type in compatible Windows and Linux apps.</p>
       <a class="button button-primary" href="#download">Download the app <svg class="icon" aria-hidden="true"><use href="#i-down"/></svg></a>
       <p class="download-caption">Windows and Debian-based Linux · x64</p>
     </div>
@@ -108,10 +108,10 @@
       <div class="section-heading"><h2 id="download-title">Download &amp; install</h2><p>64-bit desktop installers</p></div>
       <div class="platform-grid">
         <article class="platform-card">
-          <h3>Windows 10 &amp; 11</h3><p>Version 0.1.6 · x64 · <code>.exe</code></p>
-          <a class="button button-primary" download href="downloads/Vellire_0.1.6_x64-setup.exe">Download for Windows <svg class="icon" aria-hidden="true"><use href="#i-down"/></svg></a>
-          <ol><li>Open <strong>Vellire_0.1.6_x64-setup.exe</strong>.</li><li>Follow the setup prompts. Keep an internet connection available in case setup needs to install Microsoft Edge WebView2.</li><li>Open Vellire from the Start menu.</li></ol>
-          <p class="platform-note">System-wide typing is available on Linux through IBus. On Windows, styling works inside Vellire.</p>
+          <h3>Windows 10 &amp; 11</h3><p>Version 0.1.7 · x64 · <code>.exe</code></p>
+          <a class="button button-primary" download href="downloads/Vellire_0.1.7_x64-setup.exe">Download for Windows <svg class="icon" aria-hidden="true"><use href="#i-down"/></svg></a>
+          <ol><li>Open <strong>Vellire_0.1.7_x64-setup.exe</strong>.</li><li>Follow the setup prompts. Keep an internet connection available in case setup needs to install Microsoft Edge WebView2.</li><li>Open Vellire from the Start menu and choose a style such as Bold.</li></ol>
+          <p class="platform-note">Live typing works in standard Windows text fields with the US keyboard layout. Use <kbd>Alt</kbd> + <kbd>S</kbd> to start and <kbd>Alt</kbd> + <kbd>T</kbd> to pause.</p>
         </article>
         <article class="platform-card">
           <h3>Debian-based Linux</h3><p>Version 0.1.5 · Ubuntu, Zorin OS and compatible systems · x64</p>
@@ -128,7 +128,7 @@
     <div><h2 id="faq-title">Common questions</h2></div>
     <div class="faq-list">
       <details><summary>Why do some styles look different after pasting?</summary><p>Vellire changes the Unicode characters themselves. The destination app’s font decides how to draw them. If that font lacks a glyph, the app may show a blank box.</p></details>
-      <details><summary>Why does typing stay plain in some fields?</summary><p>Live typing requires IBus on Linux and a compatible text field. Vellire keeps password, private and terminal fields plain. In the app, choose <strong>Use Normal</strong> to return to standard text.</p></details>
+      <details><summary>Why does typing stay plain in some fields?</summary><p>On Windows, live typing works in standard edit fields such as those in classic Notepad. For browsers and apps with custom editors, use Vellire’s preview and copy the result. On Linux, live typing uses IBus. Password fields stay plain.</p></details>
       <details><summary>Do I need an account?</summary><p>You can preview text and use the local typing features without signing in. Google sign-in is optional.</p></details>
       <details><summary>How do I uninstall?</summary><p>On Windows, remove Vellire under Settings → Apps. On Debian-based Linux, run <code>sudo apt remove vellire</code>.</p></details>
     </div>

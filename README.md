@@ -4,4 +4,4 @@ This is the download and installation site for the Vellire Unicode typing studio
 
 Run `npm run dev` to preview locally or `npm run build` to create a static site in `dist/`. The site has no runtime dependencies. Installer filenames and checksums are in `downloads/`.
 
-The Windows installer is unsigned. Live system-wide styling is available on compatible Linux setups through IBus.
+The Windows installer is unsigned. Live typing supports standard Windows edit fields with the US keyboard layout. On Linux, live typing uses IBus.

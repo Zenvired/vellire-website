@@ -7,5 +7,10 @@
 
 [[redirects]]
   from = "/downloads/Vellire_0.1.5_x64-setup.exe"
-  to = "/downloads/Vellire_0.1.6_x64-setup.exe"
+  to = "/downloads/Vellire_0.1.7_x64-setup.exe"
+  status = 302
+
+[[redirects]]
+  from = "/downloads/Vellire_0.1.6_x64-setup.exe"
+  to = "/downloads/Vellire_0.1.7_x64-setup.exe"
   status = 302
